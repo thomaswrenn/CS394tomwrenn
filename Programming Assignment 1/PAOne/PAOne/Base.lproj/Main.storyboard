@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="TWViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U4R-ra-bDE"/>
+                        <viewControllerLayoutGuide type="bottom" id="pCQ-pJ-r9m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N2R-9b-ymW">
+                                <rect key="frame" x="20" y="40" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label=""/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="0c4-F1-w7L"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUJ-Bg-HjH">
+                                <rect key="frame" x="20" y="90" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dB-7F-Z6v">
+                                <rect key="frame" x="20" y="131" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="setButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qur-Wf-coX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4dB-7F-Z6v" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="DvT-Nu-TlN"/>
+                            <constraint firstItem="N2R-9b-ymW" firstAttribute="top" secondItem="U4R-ra-bDE" secondAttribute="bottom" constant="20" id="N7c-YT-YoL"/>
+                            <constraint firstAttribute="trailing" secondItem="wUJ-Bg-HjH" secondAttribute="trailing" constant="20" id="Q6j-ez-TRQ"/>
+                            <constraint firstItem="wUJ-Bg-HjH" firstAttribute="top" secondItem="N2R-9b-ymW" secondAttribute="bottom" constant="20" id="egC-Cu-3nd"/>
+                            <constraint firstAttribute="trailing" secondItem="4dB-7F-Z6v" secondAttribute="trailing" constant="20" id="iNt-Z0-BHd"/>
+                            <constraint firstAttribute="trailing" secondItem="N2R-9b-ymW" secondAttribute="trailing" constant="20" id="miH-0N-KV6"/>
+                            <constraint firstItem="N2R-9b-ymW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="uwB-ng-gBM"/>
+                            <constraint firstItem="4dB-7F-Z6v" firstAttribute="top" secondItem="wUJ-Bg-HjH" secondAttribute="bottom" constant="20" id="vlk-1X-zLp"/>
+                            <constraint firstItem="wUJ-Bg-HjH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="w2a-Aq-4uw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="N2R-9b-ymW" id="Mds-9m-WGM"/>
+                        <outlet property="nameTextFieldLabel" destination="wUJ-Bg-HjH" id="thP-LF-uoo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="A5w-JJ-fZp">
+            <objects>
+                <viewController id="Shj-lN-Vll" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FZO-dX-A6m"/>
+                        <viewControllerLayoutGuide type="bottom" id="cAV-ln-Xtm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="02H-Fe-wdG" customClass="PlayingCardView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NTl-gF-jUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="350" y="-20"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

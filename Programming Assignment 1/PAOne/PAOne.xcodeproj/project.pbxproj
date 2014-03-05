@@ -1,0 +1,497 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		759FA7BB18C68D930016E641 /* TWCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 759FA7BA18C68D930016E641 /* TWCardView.m */; };
+		759FA7BD18C68DAD0016E641 /* TWCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759FA7BC18C68DAD0016E641 /* TWCardView.xib */; };
+		75B7CC0018BD6F3600ADC5AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B7CBFF18BD6F3600ADC5AE /* Foundation.framework */; };
+		75B7CC0218BD6F3600ADC5AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B7CC0118BD6F3600ADC5AE /* CoreGraphics.framework */; };
+		75B7CC0418BD6F3600ADC5AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B7CC0318BD6F3600ADC5AE /* UIKit.framework */; };
+		75B7CC0A18BD6F3600ADC5AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75B7CC0818BD6F3600ADC5AE /* InfoPlist.strings */; };
+		75B7CC0C18BD6F3600ADC5AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B7CC0B18BD6F3600ADC5AE /* main.m */; };
+		75B7CC1018BD6F3600ADC5AE /* TWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B7CC0F18BD6F3600ADC5AE /* TWAppDelegate.m */; };
+		75B7CC1318BD6F3600ADC5AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7CC1118BD6F3600ADC5AE /* Main.storyboard */; };
+		75B7CC1618BD6F3600ADC5AE /* TWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B7CC1518BD6F3600ADC5AE /* TWViewController.m */; };
+		75B7CC1818BD6F3600ADC5AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75B7CC1718BD6F3600ADC5AE /* Images.xcassets */; };
+		75B7CC1F18BD6F3600ADC5AE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B7CC1E18BD6F3600ADC5AE /* XCTest.framework */; };
+		75B7CC2018BD6F3600ADC5AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B7CBFF18BD6F3600ADC5AE /* Foundation.framework */; };
+		75B7CC2118BD6F3600ADC5AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B7CC0318BD6F3600ADC5AE /* UIKit.framework */; };
+		75B7CC2918BD6F3600ADC5AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75B7CC2718BD6F3600ADC5AE /* InfoPlist.strings */; };
+		75B7CC2B18BD6F3600ADC5AE /* PAOneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B7CC2A18BD6F3600ADC5AE /* PAOneTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		75B7CC2218BD6F3600ADC5AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75B7CBF418BD6F3600ADC5AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75B7CBFB18BD6F3600ADC5AE;
+			remoteInfo = PAOne;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		759FA7B918C68D930016E641 /* TWCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWCardView.h; sourceTree = "<group>"; };
+		759FA7BA18C68D930016E641 /* TWCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWCardView.m; sourceTree = "<group>"; };
+		759FA7BC18C68DAD0016E641 /* TWCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TWCardView.xib; sourceTree = "<group>"; };
+		75B7CBFC18BD6F3600ADC5AE /* PAOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PAOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75B7CBFF18BD6F3600ADC5AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		75B7CC0118BD6F3600ADC5AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		75B7CC0318BD6F3600ADC5AE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		75B7CC0718BD6F3600ADC5AE /* PAOne-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PAOne-Info.plist"; sourceTree = "<group>"; };
+		75B7CC0918BD6F3600ADC5AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		75B7CC0B18BD6F3600ADC5AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		75B7CC0D18BD6F3600ADC5AE /* PAOne-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PAOne-Prefix.pch"; sourceTree = "<group>"; };
+		75B7CC0E18BD6F3600ADC5AE /* TWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWAppDelegate.h; sourceTree = "<group>"; };
+		75B7CC0F18BD6F3600ADC5AE /* TWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWAppDelegate.m; sourceTree = "<group>"; };
+		75B7CC1218BD6F3600ADC5AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		75B7CC1418BD6F3600ADC5AE /* TWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWViewController.h; sourceTree = "<group>"; };
+		75B7CC1518BD6F3600ADC5AE /* TWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWViewController.m; sourceTree = "<group>"; };
+		75B7CC1718BD6F3600ADC5AE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		75B7CC1D18BD6F3600ADC5AE /* PAOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PAOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75B7CC1E18BD6F3600ADC5AE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		75B7CC2618BD6F3600ADC5AE /* PAOneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PAOneTests-Info.plist"; sourceTree = "<group>"; };
+		75B7CC2818BD6F3600ADC5AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		75B7CC2A18BD6F3600ADC5AE /* PAOneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAOneTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		75B7CBF918BD6F3600ADC5AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75B7CC0218BD6F3600ADC5AE /* CoreGraphics.framework in Frameworks */,
+				75B7CC0418BD6F3600ADC5AE /* UIKit.framework in Frameworks */,
+				75B7CC0018BD6F3600ADC5AE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75B7CC1A18BD6F3600ADC5AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75B7CC1F18BD6F3600ADC5AE /* XCTest.framework in Frameworks */,
+				75B7CC2118BD6F3600ADC5AE /* UIKit.framework in Frameworks */,
+				75B7CC2018BD6F3600ADC5AE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		75B7CBF318BD6F3600ADC5AE = {
+			isa = PBXGroup;
+			children = (
+				75B7CC0518BD6F3600ADC5AE /* PAOne */,
+				75B7CC2418BD6F3600ADC5AE /* PAOneTests */,
+				75B7CBFE18BD6F3600ADC5AE /* Frameworks */,
+				75B7CBFD18BD6F3600ADC5AE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		75B7CBFD18BD6F3600ADC5AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				75B7CBFC18BD6F3600ADC5AE /* PAOne.app */,
+				75B7CC1D18BD6F3600ADC5AE /* PAOneTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		75B7CBFE18BD6F3600ADC5AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75B7CBFF18BD6F3600ADC5AE /* Foundation.framework */,
+				75B7CC0118BD6F3600ADC5AE /* CoreGraphics.framework */,
+				75B7CC0318BD6F3600ADC5AE /* UIKit.framework */,
+				75B7CC1E18BD6F3600ADC5AE /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75B7CC0518BD6F3600ADC5AE /* PAOne */ = {
+			isa = PBXGroup;
+			children = (
+				759FA7B918C68D930016E641 /* TWCardView.h */,
+				759FA7BA18C68D930016E641 /* TWCardView.m */,
+				759FA7BC18C68DAD0016E641 /* TWCardView.xib */,
+				75B7CC0E18BD6F3600ADC5AE /* TWAppDelegate.h */,
+				75B7CC0F18BD6F3600ADC5AE /* TWAppDelegate.m */,
+				75B7CC1118BD6F3600ADC5AE /* Main.storyboard */,
+				75B7CC1418BD6F3600ADC5AE /* TWViewController.h */,
+				75B7CC1518BD6F3600ADC5AE /* TWViewController.m */,
+				75B7CC1718BD6F3600ADC5AE /* Images.xcassets */,
+				75B7CC0618BD6F3600ADC5AE /* Supporting Files */,
+			);
+			path = PAOne;
+			sourceTree = "<group>";
+		};
+		75B7CC0618BD6F3600ADC5AE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75B7CC0718BD6F3600ADC5AE /* PAOne-Info.plist */,
+				75B7CC0818BD6F3600ADC5AE /* InfoPlist.strings */,
+				75B7CC0B18BD6F3600ADC5AE /* main.m */,
+				75B7CC0D18BD6F3600ADC5AE /* PAOne-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		75B7CC2418BD6F3600ADC5AE /* PAOneTests */ = {
+			isa = PBXGroup;
+			children = (
+				75B7CC2A18BD6F3600ADC5AE /* PAOneTests.m */,
+				75B7CC2518BD6F3600ADC5AE /* Supporting Files */,
+			);
+			path = PAOneTests;
+			sourceTree = "<group>";
+		};
+		75B7CC2518BD6F3600ADC5AE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75B7CC2618BD6F3600ADC5AE /* PAOneTests-Info.plist */,
+				75B7CC2718BD6F3600ADC5AE /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		75B7CBFB18BD6F3600ADC5AE /* PAOne */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75B7CC2E18BD6F3600ADC5AE /* Build configuration list for PBXNativeTarget "PAOne" */;
+			buildPhases = (
+				75B7CBF818BD6F3600ADC5AE /* Sources */,
+				75B7CBF918BD6F3600ADC5AE /* Frameworks */,
+				75B7CBFA18BD6F3600ADC5AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PAOne;
+			productName = PAOne;
+			productReference = 75B7CBFC18BD6F3600ADC5AE /* PAOne.app */;
+			productType = "com.apple.product-type.application";
+		};
+		75B7CC1C18BD6F3600ADC5AE /* PAOneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75B7CC3118BD6F3600ADC5AE /* Build configuration list for PBXNativeTarget "PAOneTests" */;
+			buildPhases = (
+				75B7CC1918BD6F3600ADC5AE /* Sources */,
+				75B7CC1A18BD6F3600ADC5AE /* Frameworks */,
+				75B7CC1B18BD6F3600ADC5AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				75B7CC2318BD6F3600ADC5AE /* PBXTargetDependency */,
+			);
+			name = PAOneTests;
+			productName = PAOneTests;
+			productReference = 75B7CC1D18BD6F3600ADC5AE /* PAOneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		75B7CBF418BD6F3600ADC5AE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TW;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Thomas Wrenn";
+				TargetAttributes = {
+					75B7CBFB18BD6F3600ADC5AE = {
+						DevelopmentTeam = 6QN349HHUB;
+					};
+					75B7CC1C18BD6F3600ADC5AE = {
+						TestTargetID = 75B7CBFB18BD6F3600ADC5AE;
+					};
+				};
+			};
+			buildConfigurationList = 75B7CBF718BD6F3600ADC5AE /* Build configuration list for PBXProject "PAOne" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 75B7CBF318BD6F3600ADC5AE;
+			productRefGroup = 75B7CBFD18BD6F3600ADC5AE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				75B7CBFB18BD6F3600ADC5AE /* PAOne */,
+				75B7CC1C18BD6F3600ADC5AE /* PAOneTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		75B7CBFA18BD6F3600ADC5AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				759FA7BD18C68DAD0016E641 /* TWCardView.xib in Resources */,
+				75B7CC1818BD6F3600ADC5AE /* Images.xcassets in Resources */,
+				75B7CC0A18BD6F3600ADC5AE /* InfoPlist.strings in Resources */,
+				75B7CC1318BD6F3600ADC5AE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75B7CC1B18BD6F3600ADC5AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75B7CC2918BD6F3600ADC5AE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		75B7CBF818BD6F3600ADC5AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75B7CC0C18BD6F3600ADC5AE /* main.m in Sources */,
+				75B7CC1018BD6F3600ADC5AE /* TWAppDelegate.m in Sources */,
+				75B7CC1618BD6F3600ADC5AE /* TWViewController.m in Sources */,
+				759FA7BB18C68D930016E641 /* TWCardView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75B7CC1918BD6F3600ADC5AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75B7CC2B18BD6F3600ADC5AE /* PAOneTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		75B7CC2318BD6F3600ADC5AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 75B7CBFB18BD6F3600ADC5AE /* PAOne */;
+			targetProxy = 75B7CC2218BD6F3600ADC5AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		75B7CC0818BD6F3600ADC5AE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75B7CC0918BD6F3600ADC5AE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		75B7CC1118BD6F3600ADC5AE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75B7CC1218BD6F3600ADC5AE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		75B7CC2718BD6F3600ADC5AE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75B7CC2818BD6F3600ADC5AE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		75B7CC2C18BD6F3600ADC5AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		75B7CC2D18BD6F3600ADC5AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		75B7CC2F18BD6F3600ADC5AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PAOne/PAOne-Prefix.pch";
+				INFOPLIST_FILE = "PAOne/PAOne-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		75B7CC3018BD6F3600ADC5AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PAOne/PAOne-Prefix.pch";
+				INFOPLIST_FILE = "PAOne/PAOne-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		75B7CC3218BD6F3600ADC5AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PAOne.app/PAOne";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PAOne/PAOne-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PAOneTests/PAOneTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		75B7CC3318BD6F3600ADC5AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PAOne.app/PAOne";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PAOne/PAOne-Prefix.pch";
+				INFOPLIST_FILE = "PAOneTests/PAOneTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		75B7CBF718BD6F3600ADC5AE /* Build configuration list for PBXProject "PAOne" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75B7CC2C18BD6F3600ADC5AE /* Debug */,
+				75B7CC2D18BD6F3600ADC5AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75B7CC2E18BD6F3600ADC5AE /* Build configuration list for PBXNativeTarget "PAOne" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75B7CC2F18BD6F3600ADC5AE /* Debug */,
+				75B7CC3018BD6F3600ADC5AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75B7CC3118BD6F3600ADC5AE /* Build configuration list for PBXNativeTarget "PAOneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75B7CC3218BD6F3600ADC5AE /* Debug */,
+				75B7CC3318BD6F3600ADC5AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 75B7CBF418BD6F3600ADC5AE /* Project object */;
+}
