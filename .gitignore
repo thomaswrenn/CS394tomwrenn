@@ -1,4 +1,4 @@
-## OS X
+# OS X
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -14,7 +14,7 @@ Icon
 .Spotlight-V100
 .Trashes
 
-## Objective-C
+# Objective-C
 # Xcode
 build/
 *.pbxuser
@@ -36,7 +36,7 @@ DerivedData
 # CocoaPods
 Pods
 
-## Sublime Text
+# Sublime Text
 # workspace files are user-specific
 *.sublime-workspace
 
