@@ -32,6 +32,8 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UILabel *botLeftVal;
 
 @property (strong, nonatomic) UIColor *highlightColor;
+@property (nonatomic) UIDynamicAnimator *animator;
+@property (nonatomic) UIInterpolatingMotionEffect *hme;
 
 @end
 
@@ -41,14 +43,6 @@ static NSString *suitStringArr[] = { @"♠️", @"♥️", @"♣️", @"♦️" 
 static NSString *valStringArr[] = { @"A", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K" };
 
 @synthesize cardView;
-//@synthesize shadowOffsetX = _shadowOffsetX;
-//
-//- (void) setShadowOffsetX:(NSInteger)shadowOffsetXArg {
-//    self->_shadowOffsetX = shadowOffsetXArg;
-//    [self.cardView.layer setShadowOffset:CGSizeMake(self.shadowOffsetX, 0)];
-//    [self.cardView setNeedsDisplay];
-////    [self setNeedsDisplay];
-//}
 
 - (void)setCardSuit:(CardSuitType)suitArg {
     self.suit = suitArg;
@@ -82,14 +76,6 @@ static NSString *valStringArr[] = { @"A", @"1", @"2", @"3", @"4", @"5", @"6", @"
         [self.cardView.layer setCornerRadius:5.0f];
         self.cardView.layer.borderColor = [UIColor blackColor].CGColor;
         self.cardView.layer.borderWidth = 0.25f;
-        
-//        self.highlightColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1];
-//        self.shadowOffsetX = 0;
-//        [self.cardView.layer setShadowColor:self.highlightColor.CGColor];
-//        [self.cardView.layer setShadowOpacity:0.6];
-//        [self.cardView.layer setShadowRadius:2.0];
-//        [self.cardView.layer setShadowOffset:CGSizeMake(self.shadowOffsetX, 0)];
-        
         [self addSubview:self.cardView];
     }
     return self;
@@ -103,17 +89,28 @@ static NSString *valStringArr[] = { @"A", @"1", @"2", @"3", @"4", @"5", @"6", @"
         self.cardView.layer.borderColor = [UIColor blackColor].CGColor;
         self.cardView.layer.borderWidth = 0.25f;
         [self setCardSuit:(arc4random()%3) cardVal:(arc4random()%13)];
-        
-//        self.highlightColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1];
-//        self.shadowOffsetX = 0;
-//        [self.cardView.layer setShadowColor:self.highlightColor.CGColor];
-//        [self.cardView.layer setShadowOpacity:0.6];
-//        [self.cardView.layer setShadowRadius:2.0];
-//        [self.cardView.layer setShadowOffset:CGSizeMake(self.shadowOffsetX, 0)];
-        
         [self addSubview:self.cardView];
     }
     return self;
+}
+
+@synthesize animator = _animator;
+@synthesize hme = _hme;
+
+- (void)initAnimator {
+    _animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.superview];
+    UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self]];
+    UICollisionBehavior *collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self]];
+    collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+    [_animator addBehavior:gravityBehavior];
+    [_animator addBehavior:collisionBehavior];
+    
+    _hme = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    _hme.minimumRelativeValue = @(-12);
+    _hme.maximumRelativeValue = @(12);
+    
+    [self addMotionEffect:self.hme];
+
 }
 
 //- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

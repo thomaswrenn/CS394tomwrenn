@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *nameTextFieldLabel;
 @property (strong, nonatomic) IBOutlet TWCardView *card;
-@property (nonatomic) UIDynamicAnimator *animator;
+@property (nonatomic) UIInterpolatingMotionEffect *hme;
 -(IBAction)showReferencedView;
 -(IBAction)setButton:(id)sender;
 
@@ -22,23 +22,12 @@
 
 @implementation TWViewController
 
-@synthesize animator = _animator;
-
 - (IBAction)showReferencedView{
-    CGRect cardFrame = CGRectMake(100, 200, 100, 200);
+    CGSize pos = CGSizeMake(((self.view.bounds.size.width/2) - (90/2)), ((self.view.bounds.size.height/2) - (140/2)));
+    CGRect cardFrame = CGRectMake(pos.width, pos.height, 90, 140);
     self.card = [[TWCardView alloc] initRandomCard:cardFrame];
     [self.view addSubview:self.card];
-    _animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
-    UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self.card]];
-    UICollisionBehavior *collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self.card]];
-    collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
-    [_animator addBehavior:gravityBehavior];
-    [_animator addBehavior:collisionBehavior];
-    UIInterpolatingMotionEffect *hme = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"shadowOffsetX" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
-    hme.minimumRelativeValue = @(-12);
-    hme.maximumRelativeValue = @(12);
-    
-    [self.card addMotionEffect:horizontalMotionEffect];
+    [self.card initAnimator];
 }
 
 - (IBAction)setButton:(id)sender {
