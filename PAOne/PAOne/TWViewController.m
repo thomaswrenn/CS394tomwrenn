@@ -7,14 +7,39 @@
 //
 
 #import "TWViewController.h"
+#import "TWCardView.h"
 
 @interface TWViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *nameTextFieldLabel;
+@property (strong, nonatomic) IBOutlet TWCardView *card;
+@property (nonatomic) UIDynamicAnimator *animator;
+-(IBAction)showReferencedView;
+-(IBAction)setButton:(id)sender;
 
 @end
 
 @implementation TWViewController
+
+@synthesize animator = _animator;
+
+- (IBAction)showReferencedView{
+    CGRect cardFrame = CGRectMake(100, 200, 100, 200);
+    self.card = [[TWCardView alloc] initRandomCard:cardFrame];
+    [self.view addSubview:self.card];
+    _animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self.card]];
+    UICollisionBehavior *collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self.card]];
+    collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+    [_animator addBehavior:gravityBehavior];
+    [_animator addBehavior:collisionBehavior];
+    UIInterpolatingMotionEffect *hme = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"shadowOffsetX" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    hme.minimumRelativeValue = @(-12);
+    hme.maximumRelativeValue = @(12);
+    
+    [self.card addMotionEffect:horizontalMotionEffect];
+}
 
 - (IBAction)setButton:(id)sender {
     NSString *_name = self.nameTextField.text;
@@ -22,8 +47,6 @@
     
     self.nameTextFieldLabel.text = _message;
     [self.nameTextField resignFirstResponder];
-}
-- (IBAction)testCallback:(id)sender {
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -35,7 +58,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (void)didReceiveMemoryWarning

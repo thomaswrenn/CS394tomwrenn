@@ -10,4 +10,9 @@
 
 @interface TWCardView : UIView
 
+@property (weak, nonatomic) IBOutlet UIView *cardView;
+//@property (nonatomic) NSInteger shadowOffsetX;
+
+- (id)initRandomCard:(CGRect)frame;
+
 @end

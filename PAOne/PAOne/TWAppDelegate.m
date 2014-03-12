@@ -7,12 +7,14 @@
 //
 
 #import "TWAppDelegate.h"
+#import "TWCardView.h"
 
 @implementation TWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
     return YES;
 }
 							
