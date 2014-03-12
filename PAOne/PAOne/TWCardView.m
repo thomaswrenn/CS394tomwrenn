@@ -100,10 +100,15 @@ static NSString *valStringArr[] = { @"A", @"1", @"2", @"3", @"4", @"5", @"6", @"
 - (void)initAnimator {
     _animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.superview];
     UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self]];
+    [gravityBehavior setAngle:((arc4random()%7)*45) magnitude:2.0f];
     UICollisionBehavior *collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self]];
     collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+    UIDynamicItemBehavior *elasticityBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self]];
+    elasticityBehavior.elasticity = 0.1f;
+    
     [_animator addBehavior:gravityBehavior];
     [_animator addBehavior:collisionBehavior];
+    [_animator addBehavior:elasticityBehavior];
     
     _hme = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
     _hme.minimumRelativeValue = @(-12);
