@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7550551318D19D7900B9EE91 /* TWCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7550551118D19D7900B9EE91 /* TWCardViewController.m */; };
 		759FA7BB18C68D930016E641 /* TWCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 759FA7BA18C68D930016E641 /* TWCardView.m */; };
 		759FA7BD18C68DAD0016E641 /* TWCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759FA7BC18C68DAD0016E641 /* TWCardView.xib */; };
 		75B7CC0018BD6F3600ADC5AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B7CBFF18BD6F3600ADC5AE /* Foundation.framework */; };
@@ -37,8 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7550551018D19D7900B9EE91 /* TWCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWCardViewController.h; sourceTree = "<group>"; };
-		7550551118D19D7900B9EE91 /* TWCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWCardViewController.m; sourceTree = "<group>"; };
 		759FA7B918C68D930016E641 /* TWCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWCardView.h; sourceTree = "<group>"; };
 		759FA7BA18C68D930016E641 /* TWCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWCardView.m; sourceTree = "<group>"; };
 		759FA7BC18C68DAD0016E641 /* TWCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TWCardView.xib; sourceTree = "<group>"; };
@@ -122,8 +119,6 @@
 			children = (
 				759FA7B918C68D930016E641 /* TWCardView.h */,
 				759FA7BA18C68D930016E641 /* TWCardView.m */,
-				7550551018D19D7900B9EE91 /* TWCardViewController.h */,
-				7550551118D19D7900B9EE91 /* TWCardViewController.m */,
 				759FA7BC18C68DAD0016E641 /* TWCardView.xib */,
 				75B7CC0E18BD6F3600ADC5AE /* TWAppDelegate.h */,
 				75B7CC0F18BD6F3600ADC5AE /* TWAppDelegate.m */,
@@ -267,7 +262,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7550551318D19D7900B9EE91 /* TWCardViewController.m in Sources */,
 				75B7CC0C18BD6F3600ADC5AE /* main.m in Sources */,
 				75B7CC1018BD6F3600ADC5AE /* TWAppDelegate.m in Sources */,
 				75B7CC1618BD6F3600ADC5AE /* TWViewController.m in Sources */,

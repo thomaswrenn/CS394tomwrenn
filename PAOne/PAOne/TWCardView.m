@@ -15,24 +15,32 @@
 
 @interface TWCardView ()
 
+// // Card Properties
 @property (nonatomic) CardSuitType suit;
 @property (nonatomic) CardValueType val;
 @property (strong, nonatomic) NSString *suitString;
 @property (strong, nonatomic) NSString *valString;
 @property (strong, nonatomic) UIColor *suitColor;
+@property (nonatomic) BOOL flipped;
 
+// // UILabel IBOutlets
+// Suit
 @property (weak, nonatomic) IBOutlet UILabel *topLeftSuit;
 @property (weak, nonatomic) IBOutlet UILabel *centMidSuit;
 @property (weak, nonatomic) IBOutlet UILabel *botRighSuit;
-
+// Value
 @property (weak, nonatomic) IBOutlet UILabel *topRighVal;
 @property (weak, nonatomic) IBOutlet UILabel *botLeftVal;
 
-@property (strong, nonatomic) UIColor *highlightColor;
+// // DynamicAnimator objects
 @property (nonatomic) UIDynamicAnimator *animator;
 @property (nonatomic) UIInterpolatingMotionEffect *hme;
 @property (nonatomic) UISnapBehavior *snapBehavior;
 @property (nonatomic) UIGravityBehavior *gravityBehavior;
+
+// // CardView Sides from Nib
+@property (strong, nonatomic) IBOutlet UIView *frontCardView;
+@property (strong, nonatomic) IBOutlet UIView *backCardView;
 
 @end
 
@@ -40,6 +48,7 @@
 
 static NSString *suitStringArr[] = { @"♠️", @"♥️", @"♣️", @"♦️" };
 static NSString *valStringArr[] = { @"A", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K" };
+static 
 
 - (void)setCardSuit:(CardSuitType)suitArg {
     self.suit = suitArg;
@@ -65,11 +74,19 @@ static NSString *valStringArr[] = { @"A", @"1", @"2", @"3", @"4", @"5", @"6", @"
     [self setCardVal:cardValArg];
 }
 
+- (void)flipCard {
+    [UIView animateWithDuration:1.0f
+                     animations:^{
+                         [[self layer] setTransform:CAAfineflippedTransform]
+                     }];
+    self.flipped ^= 1;
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-//        [[NSBundle mainBundle] loadNibNamed:@"TWCardView" owner:self options:nil];
+        // [[NSBundle mainBundle] loadNibNamed:@"TWCardView" owner:self options:nil];
         [[UINib nibWithNibName:@"TWCardView" bundle:nil] instantiateWithOwner:self options:nil];
         [self.frontCardView.layer setCornerRadius:5.0f];
         self.frontCardView.layer.borderColor = [UIColor blackColor].CGColor;
@@ -78,9 +95,7 @@ static NSString *valStringArr[] = { @"A", @"1", @"2", @"3", @"4", @"5", @"6", @"
         [self.backCardView.layer setCornerRadius:5.0f];
         self.backCardView.backgroundColor = [UIColor redColor];
         self.flipped = NO;
-        [self addSubview:self.backCardView];
-        [self addSubview:self.frontCardView];
-        NSLog(@"%i %i", (self.frontCardView != nil), (self.backCardView != nil));
+        
     }
     return self;
 }
@@ -127,19 +142,7 @@ static NSString *valStringArr[] = { @"A", @"1", @"2", @"3", @"4", @"5", @"6", @"
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"%i %i", (self.frontCardView != nil), (self.backCardView != nil));
-    [UIView transitionWithView:self
-                      duration:1.0f
-                       options:UIViewAnimationOptionTransitionFlipFromRight
-                    animations: ^{
-                        if(self.flipped) {
-                        } else {
-                            [self sendSubviewToBack:self.frontCardView];
-                        }
-                        NSLog(@"size: %i",(int)[[self subviews] count]);
-                        self.flipped ^= 1;
-                    }
-                    completion:NULL];
+    [self flipCard];
 }
 
 - (void)deactivateSnap {
