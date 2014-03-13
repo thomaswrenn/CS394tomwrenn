@@ -31,11 +31,12 @@
 }
 
 - (IBAction)setButton:(id)sender {
-    NSString *_name = self.nameTextField.text;
-    NSString *_message = [NSString stringWithFormat:@"Hi %@", _name];
-    
-    self.nameTextFieldLabel.text = _message;
-    [self.nameTextField resignFirstResponder];
+    CGFloat allDirection = (arc4random()%4*M_PI_2);
+    for (TWCardView* card in self.view.subviews) {
+        if ([card isMemberOfClass:[TWCardView class]]) {
+            [card deactivateSnapWithGravityDirection:allDirection];
+        }
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

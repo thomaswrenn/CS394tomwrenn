@@ -7,16 +7,13 @@
 //
 
 #import <stdlib.h>
+#import <math.h>
 #import <QuartzCore/QuartzCore.h>
+#import <objc/runtime.h>
+
 #import "TWCardView.h"
 
 @interface TWCardView ()
-
-typedef enum { kSpades, kHearts, kClubs, kDiamonds } CardSuitType;
-typedef enum {
-    kACard, k1Card, k2Card, k3Card, k4Card, k5Card, k6Card, k7Card, k8Card, k9Card, k10Card,
-    kJCard, kQCard, kKCard
-} CardValueType;
 
 @property (nonatomic) CardSuitType suit;
 @property (nonatomic) CardValueType val;
@@ -34,6 +31,8 @@ typedef enum {
 @property (strong, nonatomic) UIColor *highlightColor;
 @property (nonatomic) UIDynamicAnimator *animator;
 @property (nonatomic) UIInterpolatingMotionEffect *hme;
+@property (nonatomic) UISnapBehavior *snapBehavior;
+@property (nonatomic) UIGravityBehavior *gravityBehavior;
 
 @end
 
@@ -41,8 +40,6 @@ typedef enum {
 
 static NSString *suitStringArr[] = { @"♠️", @"♥️", @"♣️", @"♦️" };
 static NSString *valStringArr[] = { @"A", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K" };
-
-@synthesize cardView;
 
 - (void)setCardSuit:(CardSuitType)suitArg {
     self.suit = suitArg;
@@ -72,43 +69,47 @@ static NSString *valStringArr[] = { @"A", @"1", @"2", @"3", @"4", @"5", @"6", @"
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [[NSBundle mainBundle] loadNibNamed:@"TWCardView" owner:self options:nil];
-        [self.cardView.layer setCornerRadius:5.0f];
-        self.cardView.layer.borderColor = [UIColor blackColor].CGColor;
-        self.cardView.layer.borderWidth = 0.25f;
-        [self addSubview:self.cardView];
+//        [[NSBundle mainBundle] loadNibNamed:@"TWCardView" owner:self options:nil];
+        [[UINib nibWithNibName:@"TWCardView" bundle:nil] instantiateWithOwner:self options:nil];
+        [self.frontCardView.layer setCornerRadius:5.0f];
+        self.frontCardView.layer.borderColor = [UIColor blackColor].CGColor;
+        self.frontCardView.layer.borderWidth = 0.25f;
+        [self setCardSuit:(arc4random()%3) cardVal:(arc4random()%13)];
+        [self.backCardView.layer setCornerRadius:5.0f];
+        self.backCardView.backgroundColor = [UIColor redColor];
+        self.flipped = NO;
+        [self addSubview:self.backCardView];
+        [self addSubview:self.frontCardView];
+        NSLog(@"%i %i", (self.frontCardView != nil), (self.backCardView != nil));
     }
     return self;
 }
 
 - (id)initRandomCard:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [[NSBundle mainBundle] loadNibNamed:@"TWCardView" owner:self options:nil];
-        [self.cardView.layer setCornerRadius:5.0f];
-        self.cardView.layer.borderColor = [UIColor blackColor].CGColor;
-        self.cardView.layer.borderWidth = 0.25f;
-        [self setCardSuit:(arc4random()%3) cardVal:(arc4random()%13)];
-        [self addSubview:self.cardView];
-    }
-    return self;
+    return [self initWithFrame:frame];
 }
 
 @synthesize animator = _animator;
 @synthesize hme = _hme;
+@synthesize snapBehavior = _snapBehavior;
+@synthesize gravityBehavior = _gravityBehavior;
 
 - (void)initAnimator {
     _animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.superview];
-    UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self]];
-    [gravityBehavior setAngle:((arc4random()%7)*45) magnitude:2.0f];
+    _gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self]];
+    [_gravityBehavior setAngle:((arc4random()%7)*M_PI_2) magnitude:10.0f];
     UICollisionBehavior *collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self]];
     collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
-    UIDynamicItemBehavior *elasticityBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self]];
-    elasticityBehavior.elasticity = 0.1f;
+    UIDynamicItemBehavior *itemBehaviors = [[UIDynamicItemBehavior alloc] initWithItems:@[self]];
+    itemBehaviors.elasticity = 0.1f;
+    [itemBehaviors addAngularVelocity:1.0f forItem:self];
+    _snapBehavior = [[UISnapBehavior alloc] initWithItem:self snapToPoint:CGPointMake(200, 335)];
+    _snapBehavior.damping = 1.0;
     
-    [_animator addBehavior:gravityBehavior];
+    [_animator addBehavior:_gravityBehavior];
     [_animator addBehavior:collisionBehavior];
-    [_animator addBehavior:elasticityBehavior];
+    [_animator addBehavior:itemBehaviors];
+    [_animator addBehavior:_snapBehavior];
     
     _hme = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
     _hme.minimumRelativeValue = @(-12);
@@ -116,6 +117,33 @@ static NSString *valStringArr[] = { @"A", @"1", @"2", @"3", @"4", @"5", @"6", @"
     
     [self addMotionEffect:self.hme];
 
+}
+
+- (void)deactivateSnapWithGravityDirection:(CGFloat) angle {
+    [_gravityBehavior setAngle:angle];
+    [_animator removeBehavior:_snapBehavior];
+}
+
+#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"%i %i", (self.frontCardView != nil), (self.backCardView != nil));
+    [UIView transitionWithView:self
+                      duration:1.0f
+                       options:UIViewAnimationOptionTransitionFlipFromRight
+                    animations: ^{
+                        if(self.flipped) {
+                        } else {
+                            [self sendSubviewToBack:self.frontCardView];
+                        }
+                        NSLog(@"size: %i",(int)[[self subviews] count]);
+                        self.flipped ^= 1;
+                    }
+                    completion:NULL];
+}
+
+- (void)deactivateSnap {
+    [_animator removeBehavior:_snapBehavior];
 }
 
 //- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

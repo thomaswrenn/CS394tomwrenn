@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TWCardView">
             <connections>
+                <outlet property="backCardView" destination="Tg5-iF-vTl" id="Wpb-7g-J4V"/>
                 <outlet property="botLeftVal" destination="QPi-wm-k5c" id="6hO-CF-nGI"/>
                 <outlet property="botRighSuit" destination="YIZ-Rw-mW2" id="U9i-4u-RHg"/>
-                <outlet property="cardView" destination="tkx-sS-5JE" id="E1j-FS-Vlc"/>
                 <outlet property="centMidSuit" destination="KwS-j6-Mdr" id="Wk7-Hh-CCZ"/>
+                <outlet property="frontCardView" destination="tkx-sS-5JE" id="Jgf-qy-6zv"/>
                 <outlet property="topLeftSuit" destination="URo-LV-7Pk" id="rT3-P0-Lmn"/>
                 <outlet property="topRighVal" destination="jIp-sd-Ixf" id="Lza-db-h2I"/>
             </connections>
@@ -54,12 +55,31 @@
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="botLeftVal" destination="QPi-wm-k5c" id="Fu8-I4-sh1"/>
                 <outlet property="botRighSuit" destination="YIZ-Rw-mW2" id="K3T-xC-h1u"/>
                 <outlet property="centMidSuit" destination="KwS-j6-Mdr" id="RyP-8o-qxh"/>
+                <outlet property="frontCardView" destination="-1" id="hHK-0M-jfN"/>
                 <outlet property="topLeftSuit" destination="URo-LV-7Pk" id="LX4-gf-8S2"/>
                 <outlet property="topRighVal" destination="jIp-sd-Ixf" id="ffK-oD-Ikm"/>
+            </connections>
+        </view>
+        <view contentMode="scaleToFill" id="Tg5-iF-vTl" customClass="TWCardView">
+            <rect key="frame" x="0.0" y="0.0" width="90" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="21" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k80-xS-PE5">
+                    <rect key="frame" x="22" y="51" width="47" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backCardView" destination="-1" id="BZD-mX-JIo"/>
             </connections>
         </view>
     </objects>
