@@ -17,8 +17,7 @@ typedef enum {
     kJCard, kQCard, kKCard
 } CardValueType;
 
-- (id)initRandomCard:(CGRect)frame;
-- (void)setCardSuit:(CardSuitType)cardSuitArg cardVal:(CardValueType)cardValArg;
+- (void)setCardAndIBOutletsSuit:(CardSuitType)cardSuitArg cardVal:(CardValueType)cardValArg;
 - (void)flipCard;
 - (void)initAnimator;
 - (void)deactivateSnap;

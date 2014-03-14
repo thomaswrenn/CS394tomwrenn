@@ -25,7 +25,7 @@
 - (IBAction)showReferencedView{
     CGSize pos = CGSizeMake(((self.view.bounds.size.width/2) - (90/2)), ((self.view.bounds.size.height/2) - (140/2)));
     CGRect cardFrame = CGRectMake(pos.width, pos.height, 90, 140);
-    self.card = [[TWCardView alloc] initRandomCard:cardFrame];
+    self.card = [[TWCardView alloc] initWithFrame:cardFrame];
     [self.view addSubview:self.card];
     [self.card initAnimator];
 }

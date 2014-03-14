@@ -41,6 +41,7 @@
 // // CardView Sides from Nib
 @property (strong, nonatomic) IBOutlet UIView *frontCardView;
 @property (strong, nonatomic) IBOutlet UIView *backCardView;
+@property (strong, nonatomic) CATransformLayer* parentLayer;
 
 @end
 
@@ -48,7 +49,15 @@
 
 static NSString *suitStringArr[] = { @"♠️", @"♥️", @"♣️", @"♦️" };
 static NSString *valStringArr[] = { @"A", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K" };
-static 
+
+- (CATransform3D)CardAffineFlippedTransform {
+    CATransform3D returnMat = [[self parentLayer] transform];
+    CGPoint centralPoint = CGPointMake(self.bounds.size.width/2.0, self.bounds.size.height/2.0);
+    returnMat = CATransform3DTranslate(returnMat, centralPoint.x, centralPoint.y, 0);
+    returnMat = CATransform3DRotate(returnMat, M_PI, 0, 1.0f, 0);
+    returnMat = CATransform3DTranslate(returnMat, -centralPoint.x, -centralPoint.y, 0);
+    return returnMat;
+}
 
 - (void)setCardSuit:(CardSuitType)suitArg {
     self.suit = suitArg;
@@ -69,39 +78,64 @@ static
     self.botLeftVal.text = self.valString;
 }
 
-- (void)setCardSuit:(CardSuitType)cardSuitArg cardVal:(CardValueType)cardValArg {
+- (void)setCardAndIBOutletsSuit:(CardSuitType)cardSuitArg cardVal:(CardValueType)cardValArg {
     [self setCardSuit:cardSuitArg];
     [self setCardVal:cardValArg];
 }
 
 - (void)flipCard {
+    self.flipped ^= 1;
     [UIView animateWithDuration:1.0f
                      animations:^{
-                         [[self layer] setTransform:CAAfineflippedTransform]
-                     }];
-    self.flipped ^= 1;
+                         [[self parentLayer] setTransform:[self CardAffineFlippedTransform]];
+                     }
+                     completion:^(BOOL finished) {
+                         if (finished) {
+                             [UIView animateWithDuration:1.0f
+                                              animations:^{
+                                                  [[self parentLayer]
+                                                   setTransform:
+                                                   CATransform3DTranslate(self.parentLayer.transform, 0, 0, 100.0f)];
+                                              }];
+                         }
+                     }
+     ];
+}
+
+- (void)initCardSidesFromNibToLayer {
+    // [[NSBundle mainBundle] loadNibNamed:@"TWCardView" owner:self options:nil];
+    [[UINib nibWithNibName:@"TWCardView" bundle:nil] instantiateWithOwner:self options:nil];
+    [self.frontCardView.layer setCornerRadius:5.0f];
+    self.frontCardView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.frontCardView.layer.borderWidth = 0.25f;
+    [self.backCardView.layer setCornerRadius:5.0f];
+    self.backCardView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.backCardView.layer.borderWidth = 3.0f;
+    [self setCardAndIBOutletsSuit:(arc4random()%3) cardVal:(arc4random()%13)];
+    
+    [self setParentLayer:[[CATransformLayer alloc] init]];
+    CALayer* frontLayer = [[self frontCardView] layer];
+    CALayer* backLayer = [[self backCardView] layer];
+    frontLayer.transform = CATransform3DTranslate(frontLayer.transform, 0, 0, 0.125f);
+    backLayer.transform = CATransform3DTranslate(backLayer.transform, 0, 0, -0.125f);
+    backLayer.transform = CATransform3DRotate(backLayer.transform, M_PI, 0, 1.0f, 0);
+    
+    [[self parentLayer] addSublayer:frontLayer];
+    [[self parentLayer] addSublayer:backLayer];
+    CATransform3D perspectiveTransform = CATransform3DIdentity;
+//    perspectiveTransform.m34 = 1.0f / -500.0;
+    [[self parentLayer] setSublayerTransform:perspectiveTransform];
+    [[self layer] addSublayer:[self parentLayer]];
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // [[NSBundle mainBundle] loadNibNamed:@"TWCardView" owner:self options:nil];
-        [[UINib nibWithNibName:@"TWCardView" bundle:nil] instantiateWithOwner:self options:nil];
-        [self.frontCardView.layer setCornerRadius:5.0f];
-        self.frontCardView.layer.borderColor = [UIColor blackColor].CGColor;
-        self.frontCardView.layer.borderWidth = 0.25f;
-        [self setCardSuit:(arc4random()%3) cardVal:(arc4random()%13)];
-        [self.backCardView.layer setCornerRadius:5.0f];
-        self.backCardView.backgroundColor = [UIColor redColor];
+        [self initCardSidesFromNibToLayer];
         self.flipped = NO;
-        
     }
     return self;
-}
-
-- (id)initRandomCard:(CGRect)frame {
-    return [self initWithFrame:frame];
 }
 
 @synthesize animator = _animator;
