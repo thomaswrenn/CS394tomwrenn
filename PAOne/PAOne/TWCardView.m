@@ -43,6 +43,8 @@
 @property (strong, nonatomic) IBOutlet UIView *backCardView;
 @property (strong, nonatomic) CATransformLayer* parentLayer;
 
+@property (strong, nonatomic) UIPinchGestureRecognizer* pinch;
+
 @end
 
 @implementation TWCardView
@@ -126,6 +128,15 @@ static NSString *valStringArr[] = { @"A", @"1", @"2", @"3", @"4", @"5", @"6", @"
 //    perspectiveTransform.m34 = 1.0f / -500.0;
     [[self parentLayer] setSublayerTransform:perspectiveTransform];
     [[self layer] addSublayer:[self parentLayer]];
+    
+    self.pinch =[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(split)];
+    [self addGestureRecognizer:self.pinch];
+}
+
+// TODO: Build hand view class and move into
+- (void)split{
+    NSLog(@"quack");
+    [self removeGestureRecognizer:self.pinch];
 }
 
 - (id)initWithFrame:(CGRect)frame
